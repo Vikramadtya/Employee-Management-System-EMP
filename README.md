@@ -1,6 +1,6 @@
 # Employee Management System
 
-![icon](assests/employee.svg)
+![icon](https://raw.githubusercontent.com/Vikramadtya/Employee-Management-System-EMP-/master/assets/employee.svg?token=AUWS5VZ62RTPEOSQRPKAKATBAZMIQ)
 
 A management system to automate the regulation creation and closure process. The system provides option to add
 - Departments
