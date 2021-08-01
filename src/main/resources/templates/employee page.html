@@ -12,6 +12,7 @@
 
 
 <body>
+
 <nav aria-label="main navigation" class="navbar" role="navigation" style="background-color: #dcdde1">
     <div class="navbar-brand">
         <span class="navbar-item">
@@ -20,6 +21,7 @@
         </span>
     </div>
 </nav>
+
 <div class="container">
     <br><br><br>
     <h1 class="title">Employee List</h1>
@@ -31,7 +33,7 @@
                     <th><abbr title="Employee Id">Id</abbr></th>
                     <th>Name</th>
                     <th>Department Id</th>
-                    <th><abbr title="Date Of Birth">DOB</abbr></th>
+                    <th><abbr title="Date Of Birth">D.O.B</abbr></th>
                     <th>Email</th>
                     <th>#</th>
 
@@ -39,14 +41,14 @@
                 </thead>
                 <tbody>
                 <tr th:each="emp : ${List}">
-                    <th th:value="${emp.employee_id}"><span th:text="${emp.employee_id}">EMPLOYEE</span></th>
+                    <th th:value="${emp.id}"><span th:text="${emp.id}">EMPLOYEE</span></th>
                     <td><span th:text="${emp.first_name}">FIRST_NAME</span> <span
                             th:text="${emp.last_name}">LAST_NAME</span>
                     </td>
                     <td><span th:text="${emp.department_id}">DEPARTMENT_ID</span></td>
                     <td><span th:text="${emp.date_of_birth}">DOB</span></td>
                     <td><span th:text="${emp.email}">EMAIL</span></td>
-                    <td><input type="checkbox" th:value="${emp.employee_id}" name="selection"></td>
+                    <td><input type="checkbox" th:value="${emp.id}" name="selection"></td>
                 </tr>
                 </tbody>
             </table>
