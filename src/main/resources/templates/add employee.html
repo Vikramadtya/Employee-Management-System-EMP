@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<br>
+
+
+<nav class="level">
+    <p class="level-item has-text-centered">
+        <a class="link is-info">Home</a>
+    </p>
+    <p class="level-item has-text-centered">
+        <a class="link is-info">Menu</a>
+    </p>
+    <p class="level-item has-text-centered">
+        <img alt="" height="100" th:src="@{/images/employee.svg}" width="100">
+    </p>
+    <p class="level-item has-text-centered">
+        <a class="link is-info">Reservations</a>
+    </p>
+    <p class="level-item has-text-centered">
+        <a class="link is-info">Contact</a>
+    </p>
+</nav>
+
+<br><br><br>
+
+<div class="container content" style="text-align: center">
+
+
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+
+
+            <form method="post" th:object="${Add}">
+                <div class="notification is-danger" th:if="${#fields.hasErrors()}">
+                    <button class="delete" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"></button>
+                    Remove the errors and resubmit.
+                </div>
+                <div class="field">
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" placeholder="Employee Id" th:field="*{employee_id}" type="text">
+                    </div>
+                </div>
+
+
+                <div class="columns">
+
+                    <div class="column">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" placeholder="First Name" th:field="*{first_name}" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" placeholder="Last Name" th:field="*{last_name}" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" placeholder="Date of birth" th:field="*{date_of_birth}" type="date">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" placeholder="Email" th:field="*{email}" type="email">
+                    </div>
+                </div>
+
+
+                <div class="select">
+                    <select placeholder="Department" th:field="*{department_id}">
+                        <option th:each="dept: ${Departments}" th:value="${dept}" th:text="${dept}">DEPT</option>
+                    </select>
+                </div>
+
+                <br>
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-success">
+                            Submit
+                        </button>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="column"></div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
