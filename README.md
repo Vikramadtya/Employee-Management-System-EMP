@@ -1,6 +1,6 @@
 # Employee Management System
 
-![icon](assests/employees.png)
+![icon](assests/employee.svg)
 
 A management system to automate the regulation creation and closure process. The system provides option to add
 - Departments
