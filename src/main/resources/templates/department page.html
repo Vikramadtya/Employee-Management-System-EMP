@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+<nav aria-label="main navigation" class="navbar" role="navigation" style="background-color: #dcdde1">
+    <div class="navbar-brand">
+        <span class="navbar-item">
+            <img alt="" height="35" th:src="@{/images/team.png}" width="35">
+            <span class="title">Employee Management System</span>
+        </span>
+    </div>
+</nav>
+<div class="container">
+    <br><br><br>
+    <h1 class="title">Department List</h1>
+
+    <div class="columns">
+        <div class="column">
+
+            <div class="table-container">
+                <form method="post" th:action="@{/department/delete}" th:object="${Select}">
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                        <tr>
+                            <th><abbr title="Employee Id">Department Id</abbr></th>
+                            <th>Name</th>
+                            <th>Added at</th>
+                            <th>Last updated</th>
+                            <th>#</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="dep : ${Departments}">
+                            <th th:value="${dep.id}"><span th:text="${dep.id}">ID</span></th>
+                            <td><span th:text="${dep.name}">NAME</span></td>
+                            <td><span th:text="${dep.created_at}">DEPARTMENT_ID</span></td>
+                            <td><span th:text="${dep.updated_at}">DOB</span></td>
+                            <td><input name="selection" th:value="${dep.id}" type="checkbox"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="buttons">
+                        <a class="button is-primary" th:href="@{/department/add/}">Add</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="column">
+
+            <br>
+
+            <form method="post" th:object="${Add}" th:action="@{/department/add}">
+                <div class="notification is-danger" th:if="${#fields.hasErrors()}">
+                    <button class="delete" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"></button>
+                    Remove the errors and resubmit.
+                </div>
+
+                    <div class="column">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" placeholder="Department Name" th:field="*{name}" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-success">
+                                Add
+                            </button>
+                        </p>
+                    </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>
