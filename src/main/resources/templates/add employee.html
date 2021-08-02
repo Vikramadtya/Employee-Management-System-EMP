@@ -12,7 +12,6 @@
 
 <body>
 
-<br>
 
 <nav aria-label="main navigation" class="navbar" role="navigation" style="background-color: #dcdde1">
     <div class="navbar-brand">
@@ -29,10 +28,13 @@
 
 
     <div class="columns">
-        <div class="column"></div>
+        <div class="column">
+            <img alt="" height="400" th:src="@{/images/team.png}" width="400">
+        </div>
 
         <div class="column">
 
+            <br>
             <form method="post" th:object="${Add}">
                 <div class="notification is-danger" th:if="${#fields.hasErrors()}">
                     <button class="delete" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"></button>
@@ -74,11 +76,11 @@
 
                 <div class="select">
                     <select placeholder="Department" th:field="*{department_id}">
-                        <option th:each="dept: ${Departments}" th:text="${dept}" th:value="${dept}">DEPT</option>
+                        <option th:each="dept: ${Departments}" th:text="${dept.name}" th:value="${dept.id}">DEPT</option>
                     </select>
                 </div>
 
-                <br>
+                <br><br><br>
                 <div class="field">
                     <p class="control">
                         <button class="button is-success">
@@ -90,7 +92,6 @@
 
         </div>
 
-        <div class="column"></div>
     </div>
 
 </div>
