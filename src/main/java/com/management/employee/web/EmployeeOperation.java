@@ -27,7 +27,7 @@ public class EmployeeOperation {
     private final EmployeesRepository employeesRepository;
     private DepartmentsRepository departmentsRepository;
 
-    private List<Integer> departments;
+    private List<Department> departments;
 
 
     @Autowired
@@ -40,8 +40,8 @@ public class EmployeeOperation {
     @ModelAttribute
     public void addAttributes(Model model) {
         if(departments == null){
-            departments = new ArrayList<Integer>();
-            departmentsRepository.findAll().forEach(i -> departments.add(i.getId()));
+            departments = new ArrayList<Department>();
+            departmentsRepository.findAll().forEach(i -> departments.add(i));
         }
         model.addAttribute("Departments",departments);
     }
