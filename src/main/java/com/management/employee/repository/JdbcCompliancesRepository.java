@@ -1,30 +1,33 @@
 package com.management.employee.repository;
 
 import com.management.employee.domain.Compliance;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 
-public class JdbcCompliancesRepository implements CompliancesRepository{
+@Repository
+public class JdbcCompliancesRepository implements CompliancesRepository {
 
 
-    JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
 
-    private JdbcCompliancesRepository(JdbcTemplate jdbc){
+    @Autowired
+    public JdbcCompliancesRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 
     @Override
     public int add(Compliance compliance) {
         return jdbc.update("INSERT INTO compliances (REGULATION_TYPE,DETAILS,DEPARTMENT_ID) " +
-                "VALUE (?,?,?)",compliance.getRegulation_type(),compliance.getDetail(),compliance.getDepartment_id());
+                "VALUE (?,?,?)", compliance.getRegulation_type(), compliance.getDetail(), compliance.getDepartment_id());
     }
 
     @Override
     public int delete(int id) {
-        return jdbc.update("DELETE FROM compliances WHERE COMPLIANCE_ID=?",id);
+        return jdbc.update("DELETE FROM compliances WHERE COMPLIANCE_ID=?", id);
     }
 
     @Override

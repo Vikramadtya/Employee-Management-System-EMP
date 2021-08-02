@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Employee page</title>
+    <title>Regulation page</title>
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
 
 </head>
@@ -22,18 +22,18 @@
 </nav>
 <div class="container">
     <br><br><br>
-    <h1 class="title">Department List</h1>
+    <h1 class="title">Regualtion List</h1>
 
     <div class="columns">
         <div class="column">
 
             <div class="table-container">
-                <form method="post" th:action="@{/department/delete}" th:object="${Select}">
+                <form method="post" th:action="@{/regulation/delete}" th:object="${Select}">
                     <table class="table is-hoverable is-fullwidth">
                         <thead>
                         <tr>
                             <th><abbr title="Employee Id">Department Id</abbr></th>
-                            <th>Name</th>
+                            <th>Type</th>
                             <th>Added at</th>
                             <th>Last updated</th>
                             <th>#</th>
@@ -41,17 +41,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="dep : ${Departments}">
-                            <th th:value="${dep.id}"><span th:text="${dep.id}">ID</span></th>
-                            <td><span th:text="${dep.name}">NAME</span></td>
-                            <td><span th:text="${dep.created_at}">DEPARTMENT_ID</span></td>
-                            <td><span th:text="${dep.updated_at}">DOB</span></td>
-                            <td><input name="selection" th:value="${dep.id}" type="checkbox"></td>
+                        <tr th:each="reg : ${Regulations}">
+                            <th><span th:text="${reg.type}">TYPE</span></th>
+                            <td><span th:text="${reg.created_at}">DEPARTMENT_ID</span></td>
+                            <td><span th:text="${reg.updated_at}">DOB</span></td>
+                            <td><input name="selection" th:value="${reg.type}" type="checkbox"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <div class="buttons">
-                        <a class="button is-danger" th:href="@{/department/delete/}">Delete</a>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-danger">
+                                Delete
+                            </button>
+                        </p>
                     </div>
                 </form>
             </div>
@@ -62,27 +65,27 @@
 
             <br>
 
-            <form method="post" th:object="${Add}" th:action="@{/department/add}">
+            <form method="post" th:object="${Add}" th:action="@{/regulation/add}">
                 <div class="notification is-danger" th:if="${#fields.hasErrors()}">
                     <button class="delete" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"></button>
                     Remove the errors and resubmit.
                 </div>
 
-                    <div class="column">
-                        <div class="field">
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input" placeholder="Department Name" th:field="*{name}" type="text">
-                            </div>
+                <div class="column">
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" placeholder="Regualtion Type" th:field="*{type}" type="text">
                         </div>
                     </div>
-                    <br>
-                    <div class="field">
-                        <p class="control">
-                            <button class="button gis-success">
-                                Add
-                            </button>
-                        </p>
-                    </div>
+                </div>
+                <br>
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-success">
+                            Add
+                        </button>
+                    </p>
+                </div>
             </form>
 
         </div>
