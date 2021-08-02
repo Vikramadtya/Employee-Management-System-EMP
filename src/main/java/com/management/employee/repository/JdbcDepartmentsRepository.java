@@ -45,7 +45,7 @@ public class JdbcDepartmentsRepository implements DepartmentsRepository {
 
     @Override
     public int delete(int id) {
-        return jdbc.update("DELETE FROM departments WHERE id=?",
+        return jdbc.update("DELETE FROM departments WHERE DEPARTMENT_ID=?",
                 id);
     }
 
