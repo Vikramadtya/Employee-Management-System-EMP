@@ -2,16 +2,21 @@ package com.management.employee.repository;
 
 import com.management.employee.domain.Employee;
 import com.management.employee.domain.Regulation;
+import jdk.jfr.Registered;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Repository
 public class JdbcRegulationsRepository implements RegulationsRepository{
 
-    JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
 
-    private JdbcRegulationsRepository(JdbcTemplate jdbc){
+    @Autowired
+    public JdbcRegulationsRepository(JdbcTemplate jdbc){
         this.jdbc = jdbc;
     }
 
