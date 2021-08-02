@@ -38,7 +38,7 @@ public class JdbcDepartmentsRepository implements DepartmentsRepository {
 
     @Override
     public int update(Department dept) {
-        return jdbc.update("UPDATE departments SET DEPARTMENT_NAME=? WHERE id=?",
+        return jdbc.update("UPDATE departments SET DEPARTMENT_NAME=? WHERE DEPARTMENT_ID=?",
                 dept.getName(),
                 dept.getId());
     }

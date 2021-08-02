@@ -33,13 +33,13 @@ public class JdbcEmployeesRepository implements EmployeesRepository {
 
     @Override
     public int delete(Integer id) {
-        return jdbc.update("DELETE FROM employees WHERE id=?",
+        return jdbc.update("DELETE FROM employees WHERE EMP_ID=?",
                 id);
     }
 
     @Override
     public int update(Employee emp) {
-        return jdbc.update("UPDATE employees SET FIRST_NAME=?,LAST_NAME=?,DOB=?,EMAIL=?,DEPARTMENT_ID=? WHERE id=?",
+        return jdbc.update("UPDATE employees SET FIRST_NAME=?,LAST_NAME=?,DOB=?,EMAIL=?,DEPARTMENT_ID=? WHERE EMP_ID=?",
                 emp.getFirst_name(),
                 emp.getLast_name(),
                 emp.getDate_of_birth(),
