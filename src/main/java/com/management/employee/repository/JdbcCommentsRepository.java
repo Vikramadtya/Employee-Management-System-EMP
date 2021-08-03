@@ -15,7 +15,7 @@ public class JdbcCommentsRepository implements  CommentsRepository{
     private final JdbcTemplate jdbc;
 
     @Autowired
-    private JdbcCommentsRepository(JdbcTemplate jdbc){
+    public JdbcCommentsRepository(JdbcTemplate jdbc){
         this.jdbc = jdbc;
     }
 

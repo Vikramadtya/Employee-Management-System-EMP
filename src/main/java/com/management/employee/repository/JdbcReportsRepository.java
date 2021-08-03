@@ -14,7 +14,7 @@ public class JdbcReportsRepository implements ReportsRepository {
     private final JdbcTemplate jdbc;
 
     @Autowired
-    private JdbcReportsRepository(JdbcTemplate jdbc) {
+    public JdbcReportsRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 

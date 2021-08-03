@@ -36,7 +36,6 @@ public class ComplianceOperations {
     @GetMapping("/")
     public String compliances(@RequestParam(name="id", required = false) Integer id, Model model) {
         if(id != null){
-            System.out.println(id);
             Compliance compliance = compliancesRepository.findById(id);
             model.addAttribute("Complaince",compliance);
             return "compliance status";
