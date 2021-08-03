@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Employee page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<nav aria-label="main navigation" class="navbar" role="navigation" style="background-color: #dcdde1">
+    <div class="navbar-brand">
+        <span class="navbar-item">
+            <img alt="" height="35" th:src="@{/images/team.png}" width="35">
+            <span class="title">Employee Management System</span>
+        </span>
+    </div>
+</nav>
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <p class="title">
+            Report <span th:text="${report.id}">ID</span>
+        </p>
+        <p class="subtitle">
+            <span th:text="${report.employee_id}">ID</span>/<span th:text="${report.compliance_id}">ID</span>
+        </p>
+
+    </div>
+</section>
+
+<div class="container">
+    <br>
+    <br>
+    <div class="content">
+        <h2>Details</h2>
+        <p> <span th:text="${compliance.detail}"></span></p>
+
+        <p><strong>Department ID</strong> : <span th:text="${compliance.department_id}">VAR</span></p>
+        <p><strong>Regulation Type</strong> : <span th:text="${compliance.regulation_type}">VAR</span></p>
+        <p><strong>Creation date</strong> : <span th:text="${compliance.created_at}">VAR</span></p>
+        <p><strong>Update date</strong> : <span th:text="${compliance.updated_at}">VAR</span></p>
+
+
+        <h2>Comments</h2>
+
+        <article class="media" th:each="comment : ${comments}">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>Employee id <span th:text="${comment.author}">ID</span></strong> <small th:text="${comment.created_at}">DATE</small>
+                        <br>
+                        <span th:text="${comment.comment}">COMMENT</span>
+                    </p>
+                </div>
+            </div>
+            <div class="media-right">
+                <button class="delete"></button>
+            </div>
+        </article>
+
+    </div>
+
+
+</div>
+</body>
+
+</html>
