@@ -1,15 +1,13 @@
 package com.management.employee.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
 
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Comment {
     int id;
     @NonNull  int report_id;

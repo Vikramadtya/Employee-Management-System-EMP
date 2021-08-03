@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="compliance : ${List}">
-                    <th><span th:text="${compliance.id}">EMPLOYEE</span></th>
+                    <th><a th:href="@{/report/(id=${compliance.id})}"><span th:text="${compliance.id}">EMPLOYEE</span></a></th>
                     <td><a th:href="@{/compliances/(id=${compliance.id})}"><span th:text="${compliance.regulation_type}">FIRST_NAME</span></a></td>
                     <td><span th:text="${compliance.department_id}">DEPARTMENT_ID</span></td>
                     <td><span th:text="${compliance.created_at}">DOB</span></td>
