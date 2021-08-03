@@ -1,16 +1,20 @@
 package com.management.employee.repository;
 
 import com.management.employee.domain.Report;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JdbcReportsRepository implements ReportsRepository{
+@Repository
+public class JdbcReportsRepository implements ReportsRepository {
 
-    JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
 
-    private JdbcReportsRepository(JdbcTemplate jdbc){
+    @Autowired
+    private JdbcReportsRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 
@@ -31,7 +35,7 @@ public class JdbcReportsRepository implements ReportsRepository{
     @Override
     public Report findById(int id) {
         return jdbc.queryForObject("SELECT REPORT_ID,COMPLIANCE_ID,EMP_ID,CREATION_DATE,UPDATE_DATE FROM reports WHERE REPORT_ID=?",
-                this::mapRowToReport,id);
+                this::mapRowToReport, id);
     }
 
     @Override
@@ -43,17 +47,17 @@ public class JdbcReportsRepository implements ReportsRepository{
     @Override
     public Iterable<Report> findByComplianceID(int id) {
         return jdbc.query("SELECT REPORT_ID,COMPLIANCE_ID,EMP_ID,CREATION_DATE,UPDATE_DATE FROM reports WHERE COMPLIANCE_ID=?",
-                this::mapRowToReport,id);
+                this::mapRowToReport, id);
     }
 
     @Override
     public Iterable<Report> findByEmployee(int id) {
         return jdbc.query("SELECT REPORT_ID,COMPLIANCE_ID,EMP_ID,CREATION_DATE,UPDATE_DATE FROM reports WHERE EMP_ID=?",
-                this::mapRowToReport,id);
+                this::mapRowToReport, id);
     }
 
     private Report mapRowToReport(ResultSet rs, int RowNum) throws SQLException {
-        return new Report(rs.getInt("REPORT_ID"),rs.getInt("COMPLIANCE_ID"),rs.getInt("EMP_ID"),
+        return new Report(rs.getInt("REPORT_ID"), rs.getInt("COMPLIANCE_ID"), rs.getInt("EMP_ID"),
                 rs.getDate("CREATION_DATE"),
                 rs.getDate("UPDATE_DATE"));
     }

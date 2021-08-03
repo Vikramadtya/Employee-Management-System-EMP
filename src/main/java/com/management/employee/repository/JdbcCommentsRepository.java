@@ -1,16 +1,20 @@
 package com.management.employee.repository;
 
 import com.management.employee.domain.Comment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Repository
 public class JdbcCommentsRepository implements  CommentsRepository{
 
-    JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
 
+    @Autowired
     private JdbcCommentsRepository(JdbcTemplate jdbc){
         this.jdbc = jdbc;
     }
