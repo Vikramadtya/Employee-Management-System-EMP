@@ -18,6 +18,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.inMemoryAuthentication().withUser("vsingh6").password("{noop}root").authorities("ROLE_USER");
+        auth.inMemoryAuthentication().withUser("root").password("{noop}root").authorities("ROLE_USER");
     }
 }
