@@ -53,11 +53,21 @@
 			<artifactId>validation-api</artifactId>
 			<version>2.0.0.Final</version>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.5.2</version>
 		</dependency>
+=======
+
+		<dependency>
+			<groupId>com.management</groupId>
+			<artifactId>EmployeeManagemetApp</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+>>>>>>> 62745173a8bce2f120f414c6806083ba54cf4a64
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -73,6 +83,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.25</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.5.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
